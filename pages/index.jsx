@@ -11,9 +11,6 @@ const recipesQuery = `*[_type == "recipe"] {
 }`
 
 export default function Home({ recipes }) {
-
-
-
   return (
     <>
       <Metatags />
@@ -23,7 +20,7 @@ export default function Home({ recipes }) {
       <ul className="recipes-list">
         {recipes?.length > 0 && recipes.map((recipe) => (
           <li key={recipe._id} className="recipe-card">
-            <Link href='/' passHref>
+            <Link href={`/recipes/${recipe.slug.current}`} passHref>
               <a>
                 <div className="recipe-card__img">
                   <Image src={urlFor(recipe.mainImage).url()} alt={recipe.name} layout="fill"/>
@@ -39,7 +36,6 @@ export default function Home({ recipes }) {
 }
 
 export async function getStaticProps(context) {
-
   const recipes = await sanityClient.fetch(recipesQuery)
 
   return {
