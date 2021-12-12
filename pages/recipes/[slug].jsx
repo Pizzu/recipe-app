@@ -84,7 +84,12 @@ export async function getStaticProps({ params }) {
     }
   }
 
-  return { props: { data: { recipe }, preview: true } };
+  return { 
+    props: { 
+      data: { recipe }, preview: true 
+    },
+    revalidate: 5000
+  };
 }
 
 export async function getStaticPaths() {
