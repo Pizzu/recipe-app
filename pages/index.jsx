@@ -35,7 +35,7 @@ export default function Home({ recipes }) {
   )
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   const recipes = await sanityClient.fetch(recipesQuery)
 
   return {
