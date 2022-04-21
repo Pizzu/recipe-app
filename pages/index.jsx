@@ -15,7 +15,7 @@ export default function Home({ recipes }) {
     <>
       <Metatags />
 
-      <h1>Welcome to Fast Fridge</h1>
+      <h1>Welcome to Fast Fridge!!!</h1>
 
       <ul className="recipes-list">
         {recipes?.length > 0 && recipes.map((recipe) => (
